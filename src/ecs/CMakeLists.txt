@@ -1,13 +1,20 @@
 add_library(ecs STATIC)
 target_sources(ecs
     PRIVATE
-        ecs.cpp include/ecs/ecs.h
+                      include/ecs/ecs.h
+        archetype.cpp include/ecs/archetype.h
+        componentarray.cpp include/ecs/componentarray.h
+                           include/ecs/tagtypes.h
 )
 target_include_directories(ecs
     PRIVATE
         include/ecs
     PUBLIC
         include
+)
+target_link_libraries(ecs
+    PUBLIC
+        ts
 )
 
 

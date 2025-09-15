@@ -22,7 +22,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -Weffc++ -pedantic  \
     -Wunsafe-loop-optimizations  -Wlong-long -Wmissing-braces \
     -Wmissing-field-initializers -Wmissing-format-attribute   \
     -Wmissing-include-dirs -Wmissing-noreturn \
-    -Wpacked  -Wpadded -Wparentheses  -Wpointer-arith \
+    -Wpacked -Wparentheses  -Wpointer-arith \
     -Wredundant-decls -Wreturn-type \
     -Wsequence-point -Wsign-compare  -Wstack-protector \
     -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch  -Wswitch-default \

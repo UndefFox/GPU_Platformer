@@ -4,7 +4,7 @@
 
 typedef unsigned int tagId;
 
-template <typename T>
+template <int T>
 struct Tag {
     const tagId id;
 

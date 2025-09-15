@@ -5,13 +5,13 @@
 
 #include "tag.h"
 
-template <typename T>
+template <int T>
 class TagSystem {
 public:
 
 private:
-    std::map<const std::string_view, const Tag<T>> registeredTags;
     tagId lastId;
+    std::map<const std::string_view, const Tag<T>> registeredTags;
 
 
 public:

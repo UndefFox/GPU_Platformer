@@ -4,6 +4,7 @@ target_sources(ts
     PRIVATE
         include/ts/tagsystem.h
         include/ts/tag.h
+        include/ts/tagable.h
 )
 target_include_directories(ts
     PRIVATE
