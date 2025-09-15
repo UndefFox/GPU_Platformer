@@ -9,4 +9,4 @@ cmake --install ./build
 
 
 # Generating doccumentation
-doxygen ./Doxyfile
+doxygen -q ./Doxyfile

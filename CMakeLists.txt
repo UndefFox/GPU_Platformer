@@ -6,12 +6,12 @@ cmake_minimum_required(VERSION 3.24.1)
 
 project(gpu_platformer)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_BUILD_PARALLEL_LEVEL 6)
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -Weffc++ -pedantic  \
-    -pedantic-errors -Wextra -Waggregate-return -Wcast-align \
+    -pedantic-errors -Wextra -Wcast-align \
     -Wcast-qual  -Wchar-subscripts  -Wcomment -Wconversion \
     -Wdisabled-optimization \
     -Werror -Wfloat-equal  -Wformat  -Wformat=2 \
@@ -24,7 +24,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -Weffc++ -pedantic  \
     -Wmissing-include-dirs -Wmissing-noreturn \
     -Wpacked  -Wpadded -Wparentheses  -Wpointer-arith \
     -Wredundant-decls -Wreturn-type \
-    -Wsequence-point  -Wshadow -Wsign-compare  -Wstack-protector \
+    -Wsequence-point -Wsign-compare  -Wstack-protector \
     -Wstrict-aliasing -Wstrict-aliasing=2 -Wswitch  -Wswitch-default \
     -Wswitch-enum -Wtrigraphs  -Wuninitialized \
     -Wunknown-pragmas  -Wunreachable-code -Wunused \
