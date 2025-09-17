@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <span>
+#include <type_traits>
 
 struct ComponentArrayDeleter {
     void operator()(void* ptr) const;
@@ -20,7 +21,8 @@ private:
     ComponentArray(size_t length, size_t cSize, size_t cAligment);
 
 public:
-    template <class T>
+    template <class T> requires
+        std::is_trivially_copyable<T>::value
     static inline ComponentArray createInstance(size_t length) { return ComponentArray(length, sizeof(T), alignof(T)); }
 
     template <class T>

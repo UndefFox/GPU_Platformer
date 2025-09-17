@@ -3,7 +3,7 @@
 #include <string_view>
 #include <string>
 
-struct Tagabable {
+struct Tagable {
     static inline constexpr std::string_view getTagName() {
         static const std::string tagName = "NULL";
 

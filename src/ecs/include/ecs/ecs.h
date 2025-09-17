@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <utility>
 
 #include "ts/tagsystem.h"
 #include "ts/tag.h"
@@ -12,19 +13,20 @@ class ECS {
 public:
 
 private:
-    TagSystem<TagType::Component> componentsTags;
-    TagSystem<TagType::Archetype> archeTypesTags;
-    TagSystem<TagType::System>    systemsTags;
+    TagSystem<TagType::Component> componentsTS;
+    TagSystem<TagType::Archetype> archeTypesTS;
+    TagSystem<TagType::System>    systemsTS;
 
-    std::vector<ArcheType> archetypes;
+    std::vector<std::pair<Tag<TagType::Archetype>, ArcheType>> archetypes;
+
 
 public:
     template <class T>
-    inline Tag<TagType::Component> registerComponent() { componentsTags.getId(T::getTagName()); }
+    inline Tag<TagType::Component> registerComponent() { componentsTS.getId(T::getTagName()); }
 
     template <class T>
-    inline Tag<TagType::Archetype> registerArcheType() { archeTypesTags.getId(T::getTagName()); }
+    inline Tag<TagType::Archetype> registerArcheType() { archeTypesTS.getId(T::getTagName()); }
 
     template <class T>
-    inline Tag<TagType::System> registerSystem() { systemsTags.getId(T::getTagName()); }
+    inline Tag<TagType::System> registerSystem() { systemsTS.getId(T::getTagName()); }
 };
