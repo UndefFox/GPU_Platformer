@@ -4,22 +4,20 @@
 #include <utility>
 
 #include "componentarray.h"
-#include "tagtypes.h"
 #include "ts/tag.h"
+
+
+
+typedef Tag ArcheTypeTag;
 
 class ArcheType {
 private:
-    const Tag<TagType::Archetype> tag;
-    std::vector<std::pair<const Tag<TagType::Component>, ComponentArray>> components;
+    const ArcheTypeTag tag;
+    std::vector<std::pair<const ComponentArrayTag, ComponentArray>> components;
     size_t length;
 
 public:
-    template <typename T>
-    inline void registerComponent(const Tag<TagType::Component>& tag) {
-        components.insert(std::pair{tag, ComponentArray::createInstance<T>(length)});
-    };
-
-
+    void registerComponent(const ComponentArrayTag& tag, size_t length, size_t cSize, size_t cAligment);
 
     void resize(size_t newLength);
 };

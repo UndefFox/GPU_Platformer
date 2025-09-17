@@ -2,9 +2,10 @@
 
 #include <limits>
 
+
+
 typedef unsigned int tagId;
 
-template <int T>
 struct Tag {
     const tagId id;
 

@@ -4,16 +4,18 @@
 #include <utility>
 
 #include "ts/tag.h"
-#include "tagtypes.h"
 #include "executionrestraints.h"
 #include "archetype.h"
+#include "componentarray.h"
 
+
+
+typedef Tag SystemTag;
 
 class System {
 public:
-    const Tag<TagType::System> tag;
     const std::vector<std::pair<ExecutionRestraintType, const ExecutionRestraint<ExecutionRestraintType::None> *const>> restrains;
-    const std::vector<Tag<TagType::Component>> processedComponents;
+    const std::vector<ComponentArrayTag> processedComponents;
 
 public:
     void (*preExecute)();

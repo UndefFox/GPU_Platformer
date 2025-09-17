@@ -5,28 +5,29 @@
 
 #include "ts/tagsystem.h"
 #include "ts/tag.h"
-#include "tagtypes.h"
 #include "archetype.h"
+#include "system.h"
+
 
 
 class ECS {
 public:
 
 private:
-    TagSystem<TagType::Component> componentsTS;
-    TagSystem<TagType::Archetype> archeTypesTS;
-    TagSystem<TagType::System>    systemsTS;
+    TagSystem componentsTS;
+    TagSystem archeTypesTS;
+    TagSystem systemsTS;
 
-    std::vector<std::pair<Tag<TagType::Archetype>, ArcheType>> archetypes;
-
+    std::vector<std::pair<ArcheTypeTag, ArcheType>> archetypes;
+    std::vector<std::pair<SystemTag, System>> systems;
 
 public:
     template <class T>
-    inline Tag<TagType::Component> registerComponent() { componentsTS.getId(T::getTagName()); }
+    inline Tag registerComponent() { componentsTS.getId(T::getTagName()); }
 
     template <class T>
-    inline Tag<TagType::Archetype> registerArcheType() { archeTypesTS.getId(T::getTagName()); }
+    inline Tag registerArcheType() { archeTypesTS.getId(T::getTagName()); }
 
     template <class T>
-    inline Tag<TagType::System> registerSystem() { systemsTS.getId(T::getTagName()); }
+    inline Tag registerSystem() { systemsTS.getId(T::getTagName()); }
 };

@@ -1,8 +1,13 @@
 #pragma once
 
 #include <memory>
-#include <span>
-#include <type_traits>
+
+#include "ts/tag.h"
+
+
+
+typedef Tag ComponentArrayTag;
+
 
 struct ComponentArrayDeleter {
     void operator()(void* ptr) const;
@@ -14,19 +19,13 @@ private:
     const size_t aligment;
     size_t reserve;
     size_t length;
-    std::unique_ptr<void, ComponentArrayDeleter> data;
-
-
-private:
-    ComponentArray(size_t length, size_t cSize, size_t cAligment);
+    std::unique_ptr<void, ComponentArrayDeleter> memory;
 
 public:
-    template <class T> requires
-        std::is_trivially_copyable<T>::value
-    static inline ComponentArray createInstance(size_t length) { return ComponentArray(length, sizeof(T), alignof(T)); }
+    ComponentArray(size_t length, size_t cSize, size_t cAligment);
 
-    template <class T>
-    inline const std::span<T> getData() const { return static_cast<T>(data.get()); }
+    void* data() const noexcept;
+    size_t size() const noexcept;
 
     void resize(size_t length);
 };

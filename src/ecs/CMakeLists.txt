@@ -4,7 +4,6 @@ target_sources(ecs
                       include/ecs/ecs.h
         archetype.cpp include/ecs/archetype.h
         componentarray.cpp include/ecs/componentarray.h
-                           include/ecs/tagtypes.h
                            include/ecs/system.h
                            include/ecs/executionrestraints.h
 )
