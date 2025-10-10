@@ -8,9 +8,11 @@ project(gpu_platformer)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_BUILD_PARALLEL_LEVEL 6)
-set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -Weffc++ -pedantic  \
     -pedantic-errors -Wextra -Wcast-align \
     -Wcast-qual  -Wchar-subscripts  -Wcomment -Wconversion \
@@ -18,7 +20,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -Weffc++ -pedantic  \
     -Werror -Wfloat-equal  -Wformat  -Wformat=2 \
     -Wformat-nonliteral -Wformat-security  \
     -Wformat-y2k \
-    -Wimport  -Winit-self  -Winline \
+    -Wimport  -Winit-self \
     -Winvalid-pch   \
     -Wunsafe-loop-optimizations  -Wlong-long -Wmissing-braces \
     -Wmissing-field-initializers -Wmissing-format-attribute   \

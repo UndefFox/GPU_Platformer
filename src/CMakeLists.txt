@@ -5,6 +5,7 @@ add_subdirectory(core)
 add_subdirectory(ecs)
 add_subdirectory(ts)
 add_subdirectory(modman)
+add_subdirectory(graphs)
 
 
 target_link_libraries(gpu_platformer
