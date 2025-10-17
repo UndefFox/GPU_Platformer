@@ -1,16 +1,16 @@
 #pragma once
 
-#include <vector>
-#include <string_view>
+#include <string>
 
 #include "module.h"
+#include "graphs/directedacyclicgraph.hpp"
 
 
 
 class ModuleManager {
 private:
-    std::vector<Module> modules;
+    DirectedAcyclicGraph<Module> modules;
 
 public:
-    void loadModule(const std::string_view& path);
+    void loadModule(const std::string& path);
 };

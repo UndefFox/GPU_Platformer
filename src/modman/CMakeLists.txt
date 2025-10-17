@@ -4,13 +4,18 @@ target_sources(modman
     PRIVATE
         modman.cpp include/modman/modman.h
         module.cpp include/modman/module.h
-                   include/modman/moduleinterface.h
+
+        moduleinstance.cpp include/modman/moduleinstance.h
 )
 target_include_directories(modman
     PRIVATE
         include/modman
     PUBLIC
         include
+)
+target_link_libraries(modman
+    PUBLIC
+        graphs
 )
 
 

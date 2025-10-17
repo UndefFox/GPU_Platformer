@@ -1,18 +1,35 @@
 #pragma once
 
+#include <string>
+
+#include "moduleinstance.h"
 
 
-typedef void* ModuleHandle;
 
 struct Module {
 public:
-    bool isEnabled;
+
 
 private:
-    ModuleHandle handle;
-
+    ModuleInstance instance;
+    std::string path;
 
 
 public:
-    inline bool isLoaded() const noexcept { return handle == nullptr; };
+    Module();
+    Module(const std::string& path);
+    Module(Module&) = delete;
+    Module(Module&&) = default;
+
+    ~Module() = default;
+
+    void load();
+    void unload() noexcept;
+
+    Module& operator=(Module&) = delete;
+    Module& operator=(Module&&) = default;
+    explicit operator bool() const noexcept;
+
+    void reset() noexcept;
+    void reset(const std::string& path);
 };

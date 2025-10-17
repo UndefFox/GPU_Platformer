@@ -13,7 +13,7 @@ set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
-set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -Weffc++ -pedantic  \
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -pedantic  \
     -pedantic-errors -Wextra -Wcast-align \
     -Wcast-qual  -Wchar-subscripts  -Wcomment -Wconversion \
     -Wdisabled-optimization \
