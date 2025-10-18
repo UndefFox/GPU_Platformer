@@ -6,12 +6,17 @@
 
 Module::Module()
 {
-    reset();
+    postReset();
 }
 
 Module::Module(const std::string& path)
 {
-    reset(path);
+    postReset(path);
+}
+
+Module::~Module()
+{
+    preReset();
 }
 
 void Module::load()
@@ -31,11 +36,28 @@ Module::operator bool() const noexcept
 
 void Module::reset() noexcept
 {
+    preReset();
+    postReset();
+}
+
+void Module::reset(const std::string& path)
+{
+    preReset();
+    postReset(path);
+}
+
+void Module::preReset() noexcept
+{
+
+}
+
+void Module::postReset() noexcept
+{
     instance.reset();
     path.clear();
 }
 
-void Module::reset(const std::string& path)
+void Module::postReset(const std::string &path)
 {
     if (!std::filesystem::exists(path)) throw std::runtime_error("Module folder doesn't exist.");
 

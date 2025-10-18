@@ -21,7 +21,7 @@ public:
     Module(Module&) = delete;
     Module(Module&&) = default;
 
-    ~Module() = default;
+    ~Module();
 
     void load();
     void unload() noexcept;
@@ -32,4 +32,9 @@ public:
 
     void reset() noexcept;
     void reset(const std::string& path);
+
+private:
+    void preReset() noexcept;
+    void postReset() noexcept;
+    void postReset(const std::string& path);
 };

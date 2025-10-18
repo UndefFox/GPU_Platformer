@@ -27,4 +27,9 @@ public:
 
     void reset() noexcept;
     void reset(const std::string& path);
+
+private:
+    void preReset() noexcept;
+    void postReset() noexcept;
+    void postReset(const std::string& path);
 };

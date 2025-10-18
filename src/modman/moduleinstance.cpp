@@ -15,15 +15,34 @@ void ModuleInstance::ModuleDestructor::operator()(void* handle) const noexcept
 
 ModuleInstance::ModuleInstance()
 {
-    reset();
+    postReset();
 }
 
 ModuleInstance::ModuleInstance(const std::string& path)
 {
-    reset(path);
+    postReset(path);
 }
 
 ModuleInstance::~ModuleInstance()
+{
+    preReset();
+}
+
+ModuleInstance::operator bool() const noexcept { return handle != nullptr; }
+
+void ModuleInstance::reset() noexcept
+{
+    preReset();
+    postReset();
+}
+
+void ModuleInstance::reset(const std::string &path)
+{
+    preReset();
+    postReset(path);
+}
+
+void ModuleInstance::preReset() noexcept
 {
     if (! *this) return;
 
@@ -31,27 +50,13 @@ ModuleInstance::~ModuleInstance()
     deinitFunc();
 }
 
-ModuleInstance::operator bool() const noexcept { return handle != nullptr; }
-
-void ModuleInstance::reset() noexcept
+void ModuleInstance::postReset() noexcept
 {
-    if (! *this) return;
-
-    auto deinitFunc = LOAD_FUNC(handle.get(), initializeModule);
-    deinitFunc();
-
     handle.reset();
 }
 
-void ModuleInstance::reset(const std::string &path)
+void ModuleInstance::postReset(const std::string &path)
 {
-    if (*this) {
-        dlerror();
-        auto deinitFunc = LOAD_FUNC(handle.get(), initializeModule);
-        if (const auto e = dlerror(); e) throw std::runtime_error(e);
-        deinitFunc();
-    }
-
     dlerror();
     handle.reset(dlopen(path.data(), RTLD_LAZY | RTLD_GLOBAL | RTLD_DEEPBIND));
     if (const auto e = dlerror(); e) throw std::runtime_error(e);
