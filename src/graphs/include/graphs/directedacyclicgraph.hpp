@@ -4,6 +4,7 @@
 #include <map>
 #include <utility>
 #include <algorithm>
+#include <ranges>
 
 
 
@@ -27,6 +28,11 @@ public:
     id addNode(const T&& item) { return (*(nodes.insert({lowestAveilableId(), item}).first)).first; }
     id addNode(const T& item) { return (*(nodes.insert({lowestAveilableId(), item}).first)).first; }
 
+    template<typename... Args>
+    void emplace(Args&&... args) {
+        nodes.try_emplace(lowestAveilableId(), std::forward<Args>(args)...);
+    }
+
     void removeNode(const id& nodeId) {
         nodes.erase(nodeId);
 
@@ -36,6 +42,11 @@ public:
             }
             else ++i;
         }
+    }
+
+    inline void clear() {
+        nodes.clear();
+        connections.clear();
     }
 
     id findNode(const T& item) const {
@@ -57,6 +68,8 @@ public:
     inline void disconnect(const id& from, const id& to) {
         connections.erase(std::find(connections.begin(), connections.end(), std::pair<id, id>{from, to}));
     };
+
+    auto nodeView() { return nodes | std::views::values; }
 
 private:
     id lowestAveilableId() const {
