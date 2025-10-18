@@ -1,5 +1,10 @@
 #pragma once
 
-void run() {
+#include "modman/modman.h"
 
+
+
+void run() {
+    ModuleManager man("mods");
+    man.loadAll();
 }

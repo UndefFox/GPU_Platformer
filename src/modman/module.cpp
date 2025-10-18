@@ -16,7 +16,7 @@ Module::Module(const std::string& path)
 
 void Module::load()
 {
-    instance.reset(path);
+    instance.reset(path + "/module.so");
 }
 
 void Module::unload() noexcept

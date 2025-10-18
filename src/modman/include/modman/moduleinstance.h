@@ -19,7 +19,7 @@ public:
     ModuleInstance(ModuleInstance&) = delete;
     ModuleInstance(ModuleInstance&&) = default;
 
-    ~ModuleInstance() = default;
+    ~ModuleInstance();
 
     ModuleInstance& operator=(ModuleInstance&) = delete;
     ModuleInstance& operator=(ModuleInstance&&) = default;

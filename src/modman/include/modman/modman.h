@@ -12,5 +12,16 @@ private:
     DirectedAcyclicGraph<Module> modules;
 
 public:
-    void loadModule(const std::string& path);
+    ModuleManager() noexcept;
+    ModuleManager(const std::string& modFolder);
+    ModuleManager(ModuleManager&) = delete;
+
+    ~ModuleManager() = default;
+
+    ModuleManager& operator=(ModuleManager&) = delete;
+
+    void reset() noexcept;
+    void reset(const std::string& modFolder);
+
+    void loadAll();
 };

@@ -4,8 +4,8 @@ target_sources(modman
     PRIVATE
         modman.cpp include/modman/modman.h
         module.cpp include/modman/module.h
-
         moduleinstance.cpp include/modman/moduleinstance.h
+                           include/modman/api.h
 )
 target_include_directories(modman
     PRIVATE

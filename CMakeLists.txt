@@ -46,3 +46,4 @@ add_subdirectory(src)
 # ----- Instalation -----
 
 install(TARGETS gpu_platformer DESTINATION "GPU Platformer")
+install(DIRECTORY DESTINATION "GPU Platformer/mods")
