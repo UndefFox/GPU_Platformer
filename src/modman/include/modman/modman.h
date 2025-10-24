@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 #include "module.h"
 #include "graphs/directedacyclicgraph.hpp"
@@ -13,7 +13,7 @@ private:
 
 public:
     ModuleManager() noexcept;
-    ModuleManager(const std::string& modFolder);
+    ModuleManager(const std::string_view modFolder);
     ModuleManager(ModuleManager&) = delete;
 
     ~ModuleManager() = default;
@@ -21,7 +21,7 @@ public:
     ModuleManager& operator=(ModuleManager&) = delete;
 
     void reset() noexcept;
-    void reset(const std::string& modFolder);
+    void reset(const std::string_view modFolder);
 
     void loadAll();
 };

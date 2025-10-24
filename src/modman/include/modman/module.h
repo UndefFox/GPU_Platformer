@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <string_view>
 
 #include "moduleinstance.h"
 
@@ -17,7 +18,7 @@ private:
 
 public:
     Module();
-    Module(const std::string& path);
+    Module(const std::string_view path);
     Module(Module&) = delete;
     Module(Module&&) = default;
 
@@ -31,10 +32,10 @@ public:
     explicit operator bool() const noexcept;
 
     void reset() noexcept;
-    void reset(const std::string& path);
+    void reset(const std::string_view path);
 
 private:
     void preReset() noexcept;
     void postReset() noexcept;
-    void postReset(const std::string& path);
+    void postReset(const std::string_view path);
 };

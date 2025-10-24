@@ -9,7 +9,7 @@ ModuleManager::ModuleManager() noexcept
     reset();
 }
 
-ModuleManager::ModuleManager(const std::string &modFolder)
+ModuleManager::ModuleManager(const std::string_view modFolder)
 {
     reset(modFolder);
 }
@@ -19,7 +19,7 @@ void ModuleManager::reset() noexcept
     modules.clear();
 }
 
-void ModuleManager::reset(const std::string &modFolder)
+void ModuleManager::reset(const std::string_view modFolder)
 {
     modules.clear();
 

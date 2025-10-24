@@ -9,7 +9,7 @@ Module::Module()
     postReset();
 }
 
-Module::Module(const std::string& path)
+Module::Module(const std::string_view path)
 {
     postReset(path);
 }
@@ -40,7 +40,7 @@ void Module::reset() noexcept
     postReset();
 }
 
-void Module::reset(const std::string& path)
+void Module::reset(const std::string_view path)
 {
     preReset();
     postReset(path);
@@ -57,7 +57,7 @@ void Module::postReset() noexcept
     path.clear();
 }
 
-void Module::postReset(const std::string &path)
+void Module::postReset(const std::string_view path)
 {
     if (!std::filesystem::exists(path)) throw std::runtime_error("Module folder doesn't exist.");
 

@@ -18,7 +18,7 @@ ModuleInstance::ModuleInstance()
     postReset();
 }
 
-ModuleInstance::ModuleInstance(const std::string& path)
+ModuleInstance::ModuleInstance(const std::string_view path)
 {
     postReset(path);
 }
@@ -36,7 +36,7 @@ void ModuleInstance::reset() noexcept
     postReset();
 }
 
-void ModuleInstance::reset(const std::string &path)
+void ModuleInstance::reset(const std::string_view path)
 {
     preReset();
     postReset(path);
@@ -55,7 +55,7 @@ void ModuleInstance::postReset() noexcept
     handle.reset();
 }
 
-void ModuleInstance::postReset(const std::string &path)
+void ModuleInstance::postReset(const std::string_view path)
 {
     dlerror();
     handle.reset(dlopen(path.data(), RTLD_LAZY | RTLD_GLOBAL | RTLD_DEEPBIND));

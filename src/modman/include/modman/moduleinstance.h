@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <memory>
+#include <string_view>
 
 
 
@@ -15,7 +15,7 @@ private:
 
 public:
     ModuleInstance();
-    ModuleInstance(const std::string& path);
+    ModuleInstance(const std::string_view path);
     ModuleInstance(ModuleInstance&) = delete;
     ModuleInstance(ModuleInstance&&) = default;
 
@@ -26,10 +26,10 @@ public:
     explicit operator bool() const noexcept;
 
     void reset() noexcept;
-    void reset(const std::string& path);
+    void reset(const std::string_view path);
 
 private:
     void preReset() noexcept;
     void postReset() noexcept;
-    void postReset(const std::string& path);
+    void postReset(const std::string_view path);
 };
