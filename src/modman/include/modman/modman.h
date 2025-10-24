@@ -24,4 +24,9 @@ public:
     void reset(const std::string_view modFolder);
 
     void loadAll();
+
+private:
+    void preReset() noexcept;
+    void postReset() noexcept;
+    void postReset(const std::string_view path);
 };
