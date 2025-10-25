@@ -8,9 +8,17 @@
 
 
 struct FONEntry {
+public:
     std::string name;
     std::string value;
     std::vector<FONEntry> children;
+
+public:
+    void clear();
+    std::optional<FONEntry*> getEntryByName(std::string_view name);
+    std::optional<const FONEntry*> getEntryByName(std::string_view name) const;
+
+    bool loadParamIfExits(std::string& value, const std::string_view name) const;
 };
 
 /** @brief .fon file parser.

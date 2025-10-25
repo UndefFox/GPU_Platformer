@@ -16,6 +16,7 @@ target_include_directories(modman
 target_link_libraries(modman
     PUBLIC
         graphs
+        parsers
 )
 
 

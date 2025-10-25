@@ -1,10 +1,26 @@
 #pragma once
 
-#include "modman/modman.h"
+#include <filesystem>
+
+#include "core/core.h"
+#include "parsers/fon.h"
 
 
 
 void run() {
-    ModuleManager man("mods");
-    man.loadAll();
+    FONEntry parametrs = []() -> FONEntry {
+        if (auto a = FONParser::readFromFile("./save.fon")) {
+            return *a;
+        }
+        else {
+            return {};
+        }
+    }();
+
+    Core core(parametrs);
+
+    parametrs.clear();
+    core.serialize(parametrs);
+
+    FONParser::saveToFile(parametrs, "./save.fon");
 }
