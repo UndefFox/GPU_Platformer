@@ -20,6 +20,9 @@ std::optional<FONEntry> FONParser::readFromFile(const std::string_view path)
     try {
         std::string line;
         std::getline(file, line);
+
+        if (line[0] == '-') return {};
+
         while (line.size()) {
             size_t nest = 0;
             while (true) {
@@ -42,8 +45,9 @@ std::optional<FONEntry> FONParser::readFromFile(const std::string_view path)
             if (nesting.size() - 1 == nest - 1) {
                 nesting.push(&nesting.top()->children.back());
             }
-            else if (nesting.size() - 1 == nest + 1) {
-                nesting.pop();
+            else if (nesting.size() - 1 > nest) {
+                const size_t s = nesting.size();
+                for (size_t i = 0; i < s - 1 - nest; i++) nesting.pop();
             }
             else if (nesting.size() - 1 != nest) {
                 return {};
