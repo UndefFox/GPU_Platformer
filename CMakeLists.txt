@@ -13,14 +13,14 @@ set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
-set(CMAKE_CXX_FLAGS_DEBUG "-g -O -Wall -pedantic  \
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -pedantic  \
     -pedantic-errors -Wextra -Wcast-align \
     -Wcast-qual  -Wchar-subscripts  -Wcomment -Wconversion \
     -Wdisabled-optimization \
     -Werror -Wfloat-equal  -Wformat  -Wformat=2 \
     -Wformat-nonliteral -Wformat-security  \
     -Wformat-y2k \
-    -Wimport  -Winit-self \
+    -Wimport  -Winit-self -Wstrict-overflow \
     -Winvalid-pch   \
     -Wunsafe-loop-optimizations  -Wlong-long -Wmissing-braces \
     -Wmissing-field-initializers -Wmissing-format-attribute   \

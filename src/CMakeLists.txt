@@ -6,6 +6,7 @@ add_subdirectory(ecs)
 add_subdirectory(ts)
 add_subdirectory(modman)
 add_subdirectory(graphs)
+add_subdirectory(parsers)
 
 
 target_link_libraries(gpu_platformer
