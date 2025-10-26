@@ -1,4 +1,4 @@
-add_library(modman STATIC)
+add_library(modman OBJECT)
 set_target_properties(modman PROPERTIES LINKER_LANGUAGE CXX)
 target_sources(modman
     PRIVATE

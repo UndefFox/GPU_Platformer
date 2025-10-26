@@ -1,4 +1,4 @@
-add_library(ts STATIC)
+add_library(ts OBJECT)
 set_target_properties(ts PROPERTIES LINKER_LANGUAGE CXX)
 target_sources(ts
     PRIVATE

@@ -1,4 +1,4 @@
-add_library(parsers STATIC)
+add_library(parsers OBJECT)
 target_sources(parsers
     PRIVATE
         fon.cpp include/parsers/fon.h

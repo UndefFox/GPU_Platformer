@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24.1)
 
 project(gpu_platformer)
 
-set (INSTALL_ROOT_FOLDER "GPU_Platformer")
+set (INSTALL_ROOT_FOLDER "GPU Platformer")
 
 
 

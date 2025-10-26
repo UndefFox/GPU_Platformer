@@ -1,4 +1,4 @@
-add_library(core core.cpp core.h)
+add_library(core STATIC core.cpp core.h)
 
 
 add_subdirectory(ts)
