@@ -33,3 +33,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -pedantic  \
 # ----- Compilation -----
 
 add_subdirectory(src)
+
+
+
+# ----- Installation -----
+
+install(TARGETS core DESTINATION "${INSTALL_ROOT_FOLDER}/lib")
