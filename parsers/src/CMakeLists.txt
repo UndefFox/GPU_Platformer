@@ -1,4 +1,4 @@
-add_library(parsers OBJECT)
+add_library(parsers SHARED)
 target_sources(parsers
     PRIVATE
         fon.cpp include/parsers/fon.h
@@ -9,5 +9,3 @@ target_include_directories(parsers
     PUBLIC
         include
 )
-
-

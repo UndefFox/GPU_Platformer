@@ -38,9 +38,11 @@ add_subdirectory(src)
 
 
 
-# ----- Installation -----
+# ----- Instalation -----
 
-install(TARGETS core
+install(TARGETS parsers
     LIBRARY DESTINATION "${INSTALL_ROOT_FOLDER_NAME}/lib"
     PUBLIC_HEADER DESTINATION "${INSTALL_ROOT_FOLDER_NAME}/include"
 )
+
+
